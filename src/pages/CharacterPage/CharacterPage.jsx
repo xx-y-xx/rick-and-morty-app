@@ -15,34 +15,35 @@ export const CharacterPage = () => {
 
     const [error, setError] = useState(null)
 
+  const fetchData = (url) => {
+    axios.get(url).then((res) => {
+      setCharacters(res.data.results)
+      setInfo(res.data.info)
+      setError(null)
+    })
+       .catch((err) => {
+      setError(err.response.data.error) 
+    } )
+  }
+ 
   useEffect(() => {
-    axios.get("https://rickandmortyapi.com/api/character").then((res) => {
-      console.log(res.data)
-      setCharacters(res.data.results)
-      setInfo(res.data.info)
-    })    
-    
+    fetchData("https://rickandmortyapi.com/api/character")
   }, [])
-
+ 
   const nextPageHandler = () => {
-    axios.get(info.next).then((res) => {
-      setCharacters(res.data.results)
-      setInfo(res.data.info)
-    })    
+    fetchData(info.next)
+  }
+ 
+  const previousPageHandler = () => {
+    fetchData(info.prev)
   }
 
-  const previousPageHandler = () => {
-    axios.get(info.prev).then((res) => {
-      setCharacters(res.data.results)
-      setInfo(res.data.info)
-    })   
-    
-  }
   const searchHandler = (event) => {
     const value = event.currentTarget.value
     axios.get(`https://rickandmortyapi.com/api/character?name=${value}`).then((res) => {
       setCharacters(res.data.results)
       setInfo(res.data.info)
+      setError(null)
     })
     .catch((err) => {
       setError(err.response.data.error) 
@@ -54,7 +55,7 @@ export const CharacterPage = () => {
     <div className={"pageContainer"}>
       <h1 className={"pageTitle"}>CharacterPage</h1>
       <input type="search" className={s.search} onChange={searchHandler} placeholder="Search..." />
-      {error && <div className="errorMessage">😱{error}😱</div>}A
+      {error && <div className="errorMessage">😱{error}😱</div>}
       {!error && characters.length && (
         <>
           {
