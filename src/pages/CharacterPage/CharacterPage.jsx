@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import axios from "axios"
 import s from "./CharacterPage.module.css"
 import { useState } from "react"
+import { Link } from "react-router"
 
 export const CharacterPage = () => {
   const [characters, setCharacters] = useState([])
@@ -62,8 +63,10 @@ export const CharacterPage = () => {
             <div className={s.characters}>
               {characters.map((character) => {
                 return (
-                  <div key={character.id} className={s.character}>
-                    <div className={s.characterLink}>{character.name}</div>
+                  <div key={character.id} className={s.character}>                    
+                    <Link to={`/characters/${character.id}`} className={s.characterLink}>
+                    {character.name}
+                    </Link>                     
                     <img src={character.image} alt={`${character.name} avatar`} />
                   </div>
                 )
