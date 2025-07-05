@@ -1,0 +1,66 @@
+/* EpisodePage.module.css */
+.pageContainer {
+  max-width: 1000px;
+  margin: 0 auto 50px auto;
+  padding: 30px 0;
+}
+
+.episodeList {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.episodeCard {
+  background: var(--slate-50);
+  border-left: 7px solid var(--slate-700);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px var(--slate-200-20);
+  padding: 18px 26px 18px 32px;
+  transition: box-shadow 0.18s;
+}
+
+.episodeHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+
+.episodeCode {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green-500);
+}
+
+.episodeName {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--slate-800);
+}
+
+.airDate {
+  font-size: 15px;
+  color: var(--slate-400);
+  margin-bottom: 7px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.characterListTitle {
+  margin-top: 12px;
+  font-size: 16px;
+  color: var(--slate-700);
+  font-weight: 600;
+}
+
+.characterList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 8px 0 0 0;
+  padding: 0;
+  list-style: none;
+}

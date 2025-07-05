@@ -1,0 +1,64 @@
+.pageContainer {
+  max-width: 900px;
+  margin: 40px auto 60px auto;
+  padding: 0 16px;
+}
+
+.locationList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.locationItem {
+  background: var(--slate-50);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px 0 var(--slate-200-20);
+  margin-bottom: 24px;
+  padding: 22px 26px 18px 32px;
+  border: 1px solid var(--slate-400);
+  transition: box-shadow 0.2s;
+  position: relative;
+}
+
+.locationItem:not(:last-child)::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid var(--slate-200);
+  margin: 20px -26px 0 -32px;
+}
+
+.locationName {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--slate-800);
+  margin-bottom: 7px;
+}
+
+.locationType {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--slate-700);
+  margin-bottom: 5px;
+}
+
+.locationDimension {
+  font-size: 15px;
+  color: var(--slate-400);
+  margin-bottom: 5px;
+}
+
+.locationCount {
+  font-size: 15px;
+  color: var(--slate-800);
+  margin-bottom: 2px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.unknown {
+  color: var(--red-600);
+  font-style: italic;
+}
